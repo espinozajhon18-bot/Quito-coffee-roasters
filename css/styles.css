@@ -413,7 +413,58 @@ h2 {
   font-weight: 600;
   color: var(--color-accent);
 }
+/* --- Ajustes de Responsividad para Celulares --- */
+@media (max-width: 768px) {
+  /* 1. Centrar y dar aire al encabezado principal */
+  header {
+    padding: 20px 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
 
+  header h1 {
+    font-size: 1.8rem; /* Un tamaño de letra más cómodo para móvil */
+    margin-bottom: 5px;
+  }
+
+  /* 2. Distribuir el menú de navegación de forma armoniosa */
+  nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+  }
+
+  nav a {
+    font-size: 1rem;
+    padding: 5px 10px;
+  }
+
+  /* 3. ¡El truco clave! Centrar y envolver los widgets del clima y divisas */
+  .widgets-container, 
+  header .widgets, /* Usa la clase exacta que le hayas puesto a la caja contenedora de los widgets */
+  header div:has(.clima) { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  /* Asegurar que cada widget individual se vea centrado */
+  .widget, 
+  header .info-card { 
+    flex: 1 1 140px; /* Permite que crezcan y se adapten al ancho del cel */
+    max-width: 200px;
+    justify-content: center;
+    text-align: center;
+  }
+}
 /* Botón interactivo para eliminar un café individual (X) */
 .btn-remove-item {
   background: none;
